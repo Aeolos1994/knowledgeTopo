@@ -1,0 +1,11 @@
+优化点：
+  当浏览器从（第三方）服务器请求资源时，必须先将该跨域域名解析为 IP地址，
+  然后浏览器才能发出请求。此过程称为 DNS解析。DNS 缓存可以帮助减少此延迟，
+  而 DNS解析可以导致请求增加明显的延迟。对于打开了与许多第三方的连接的网站，
+  此延迟可能会大大降低加载性能。
+优化手段：
+  dns-prefetch 可帮助开发人员掩盖 DNS解析延迟。 
+  HTML <link>元素 通过 dns-prefetch的 rel 属性值提供此功能。
+  然后在 href属性中指要跨域的域名
+使用方式：
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com/"> 
