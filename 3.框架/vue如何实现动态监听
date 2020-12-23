@@ -1,0 +1,7 @@
+vue2 {
+  Object.defineProperty(p, {
+    getter () {
+      
+    }
+  })
+}

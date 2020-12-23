@@ -1,0 +1,88 @@
+遍历：
+  前序遍历
+  中序遍历
+  后续遍历
+  层序遍历
+
+function preTraversal (root) {
+  let node = root, nodes = []
+  while (node) {
+    console.log(node.value)
+    node.right && nodes.push(node.right)
+    node.left && nodes.push(node.left)
+    node = nodes.pop()
+  }
+}
+
+function middleTraversal (root) {
+  let node = root, nodes = [root]
+  while (node || nodes.length) {
+    while (node) {
+      node.left && nodes.push(node.left)
+      node = node.left
+    }
+    node = nodes.pop()
+    console.log(node)
+    node = node.right
+  }
+}
+
+function lastTraversal (root) {
+  let node = root, nodes = [root]
+  while (node) {
+    if (
+      (!node.left && !node.right)
+      ||
+      (
+        (!node.right || node.right.done)
+        &&
+        (!node.left || node.left.done)
+      )
+    ) {
+      node.done = true
+      console.log(node.value)
+      node = nodes.pop()
+    } else if (node.left && !node.left.done) {
+      nodes.push(node.left)
+    } else if (node.right && !node.right.done) {
+      nodes.push(node.right)
+    }
+  }
+}
+
+function floorTraversal (root) {
+  let i = 0, node = root, nodes = []
+  while (node) {
+    console.log(node.value)
+    node.left && nodes.push(node.left)
+    node.right && nodes.push(node.right)
+    node = nodes[i++]
+  }
+}
+
+// 反转二叉树
+function invertTree (root) {
+  let node = root, nodes = []
+  while (node) {
+    let temp = node.left 
+    node.left = node.right
+    node.right = temp
+
+    node.left && nodes.push(node.left)
+    node.right && nodes.push(node.right)
+    nodes.pop()
+  }
+}
+
+// 树的左侧视角
+function leftEyeSide (root) {
+  root.floor = 1
+  let res = [], node = root
+  while (node) {
+    res[node.floor] || res.push(node)
+    // 下面两行的执行顺序决定左侧视角还是右侧视角
+    node.right && nodes.push(node.right)
+    node.left && nodes.push(node.left)
+    node = nodes.pop()
+  }
+}

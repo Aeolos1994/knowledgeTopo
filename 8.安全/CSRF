@@ -1,0 +1,13 @@
+CSRF Cross Site Request FXXK 是跨站请求攻击
+  主要攻击手段：
+    由第三方网站伪造源站请求，不做防护时，此时的攻击请求就
+    携带了源站的Cookie信息如Token等，可以绕过鉴权进行一些敏感操作
+  特点：
+    一般攻击由第三方网站发起（也有可能会由恶意注入源站的Frame等），
+    攻击者不知道Cookie内容具体，只是携带cookie进行恶意api请求
+  防御方式：
+    1.客户端启用Same-site Cookie只允许同源地址携带Cookie
+    2.校验Referer必须为源站地址
+    3.利用攻击者不知道Cookie内容的方式进行双重cookie防御：将cookie中的
+      token信息设置在Header中，服务器同时校验header信息中是否有该字段且与cookie中的值相同
+    4.初始化网站时服务器返回一个随机数，前端每次请求时携带该随机数，后端进行校验

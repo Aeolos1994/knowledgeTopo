@@ -1,0 +1,33 @@
+如何定义首屏优化指标：
+完全加载： loadEventEnd - navigationStart
+DOM解析时间： domComplete - responseEnd
+重定向&DNS解析时间： redirectEnd - redirectStart, domainLookupEnd - domainLookupStart
+请求获取数据时间： responseEnd - responseStart
+
+
+如何进行首屏性能优化
+1. 如果http1.x  尽量使用2-3个域名分别存放资源 以能并发多个请求压榨网络带宽资源
+2. 考虑升级至http2
+3. 注意不要redirect
+4. DNS解析时间过长时考虑使用preDNS标签
+5. DOM结构不要过于复杂
+6. 尽量使用协商缓存
+7. 尽量使用非阻塞式标签
+8. 使用CDN
+9. 图片使用webp格式
+
+
+其他性能开销优化：
+HTML少触发回流
+CSS 尽量不使用表达式 calc等， 会频繁重绘的位置触发一下合成层开启GPU加速
+JS计算密集型的业务考虑迁移至web work来做
+
+
+常见的性能指标
+
+First contentful paint (FCP): 从页面开始加载，到页面任意内容渲染在屏幕上的时间。(实验属性，现场数据)
+Largest contentful paint (LCP): 从页面加载开始，到页面上最大的文本块或者图片元素渲染在屏幕上的时间。(实验数据，现场数据)
+First input delay (FID): 用户第一个交互行为，比如点击链接、点击按钮等，到浏览器实际响应这次交互的时间。(现场数据)
+Time to Interactive (TTI): 从页面开始加载，到内容呈现，初始js加载完成，再到可以立刻响应用户交互的时间。(实验数据)
+Total blocking time (TBT): 在FCP和TTI之间的时间，即页面可见到可交互的时间，代表了主线程被阻塞无法响应用户交互。（实验数据）
+Cumulative layout shift (CLS): 从页面开始加载，到页面生命周期变为隐藏之间的所有意外的布局变化的累计分数。(实验数据，现场数据)

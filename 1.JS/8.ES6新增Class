@@ -1,0 +1,11 @@
+Proxy
+Reflect
+Map
+Set
+
+let a = {b : 1}
+let pa = new Proxy(b, {
+  set (origin, property, value) {
+
+  }
+})
