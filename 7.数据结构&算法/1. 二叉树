@@ -7,6 +7,57 @@
 function preTraversal (root) {
   let node = root, nodes = []
   while (node) {
+    console.log(node.val)
+    node.right && nodes.push(node.right)
+    node.left && nodes.push(node.left)
+    node = node.pop()
+  }
+}
+
+function midTraversal (root) {
+  let node = root, nodes = []
+  while (node || node.length) {
+    while (node) {
+      node.left && nodes.push(node.left)
+      node = node.left
+    }
+    node = nodes.pop()
+    console.log(node)
+    if (node.right) {
+      nodes.push(node.right)
+      node = node.right
+    }
+  }
+}
+
+function lastTravel (root) {
+  let node = root, nodes = []
+  while (node) {
+    if (
+      (!node.left && !node.right)
+      ||
+      (
+        !node.right || node.right.done
+        &&
+        !node.left || node.left.done
+      )
+    ) {
+      node.done = true
+      console.log(node)
+      node = nodes.pop()
+    } else if (
+      node.left && !node.left.done
+    ) {
+      nodes.push(node.left)
+    } else if (node.right && !node.right.done) {
+      nodes.push(node.right)
+    }
+  }
+}
+
+function preTraversal (root) {
+  let node = root, nodes = []
+  while (node) {
     console.log(node.value)
     node.right && nodes.push(node.right)
     node.left && nodes.push(node.left)
@@ -23,7 +74,10 @@ function middleTraversal (root) {
     }
     node = nodes.pop()
     console.log(node)
-    node = node.right
+    if (node.right) {
+      nodes.push(node.right)
+      node = node.right
+    }
   }
 }
 

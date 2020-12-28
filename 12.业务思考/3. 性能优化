@@ -1,0 +1,38 @@
+3s - 1.9s如何做到的
+分析时间占比
+
+dom解析时间占比高 domLoading - domInteractive
+剥离element，移除弹窗下的无意义骨架屏
+
+同步js执行时间占比高 domInteractive - domContentLoadedEventEnd
+非必须预加载的javascript文件下移，并加上async属性，不进行同步执行
+
+服务器并发量高时返回慢拉高了整体延迟 requestStart - responseEnd
+考虑预渲染，最终选用服务器端缓存，根据pv和uv我们判断一过性的网站所以没用service worker
+
+图片资源下载延后
+onload之后进行图片资源的下载
+
+
+H5考虑离线包方案了吗？
+
+
+打包优化做了哪些
+happypack多线程打包
+cache-loader 缓存打包过的文件
+
+
+webpack打包原理
+从入口文件构建依赖图
+递归将文件传给babel  parse成ast
+遍历ast， 将ast转换成需要的样子 比如es6转es5
+打印ast为转换后的代码
+
+loader为对应文件的转换处理器
+plugin为webpack生命周期触发调用的方法
+
+
+
+
+
+

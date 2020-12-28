@@ -1,0 +1,8 @@
+vue3对比2的重大变更？
+  1. 优化了虚拟DOM
+  2. 支持tree-shaking 因为大多功能都是通过import引用导入的
+  3. composition API提高代码逻辑复用性
+  4. 根组件不再要求唯一
+  5. 更好的支持TS
+  6. 生命周期没有create相关的了  放在setup中执行就行
+  7. setup 函数相当于 vue2.x 中 beforeCreate 和 created, 在 beforeCreate 之后、created 之前执行

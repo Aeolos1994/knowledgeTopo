@@ -1,3 +1,7 @@
+// JSON.stringify & JSON.parse进行深拷贝时会有什么问题？
+// 这种方式进行深拷贝时会忽略function、undefined、Symbol
+
+// 手动实现一个深拷贝
 function getDataType (data) {
   return Object.prototype.toString.call(data).match(/\s(.*)\]$/)[1]
 }

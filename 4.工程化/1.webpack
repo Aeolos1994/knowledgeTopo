@@ -1,0 +1,9 @@
+webpack5中有哪些重大变更？
+  1. 更加简单的cache配置取代cache-loader
+  2. 更有效的tree-shaking  支持嵌套与内部模块的shake
+  3. nodejs polyfill不在默认引用
+  4. 优化持久化缓存，将chunkId由自增改为内容hash
+  5. Module Federation 模块联邦 使得应用间的依赖可以共享（微前端？）
+
+webpack打包流程？
+webpack分包之后如何在页面中保证初始化资源存在？

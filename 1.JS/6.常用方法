@@ -1,0 +1,6 @@
+Array.slice
+Array.reduce
+Object.entries
+Object.assign
+String.prototype.padStart
+
