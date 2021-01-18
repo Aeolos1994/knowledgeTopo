@@ -1,0 +1,20 @@
+父组件A
+子组件B
+分别渲染的时候钩子顺序
+
+beforeCreate A
+created A
+beforeMount A
+beforeCreate B
+created B
+beforeMount B
+mounted B
+mounted A
+
+beforeUpdate A&B
+Updated A&B
+
+beforeDestroy A
+beforeDestroy B
+destroyed B
+destroyed A

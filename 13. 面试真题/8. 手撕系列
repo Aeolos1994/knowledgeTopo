@@ -1,0 +1,7 @@
+1. 手写一个throttle，要求支持immediate
+
+2. 手写一个Promise A+，要求符合规范
+
+3. 手写一个Promise.allSettled
+
+4. 手写一个Vuex

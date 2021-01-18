@@ -21,3 +21,14 @@ let o = {a:1, b: {c:2}}
 let oc = copy(o)
 o.b.c = 3
 console.log(oc.b.c)
+
+
+function leftSideOfTree(root) {
+  let i = 0, node = {...root, floor: 0}, nodes = [],res = []
+  while (node) {
+    res[node.floor] || res.push(node.value)
+    node.left && nodes.push({...node.left, floor: node.floor + 1})
+    node.right && nodes.push({...node.right, floor: node.floor + 1})
+    node = nodes[i++]
+  }
+}

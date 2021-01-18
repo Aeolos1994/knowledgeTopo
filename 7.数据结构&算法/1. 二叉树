@@ -82,8 +82,9 @@ function middleTraversal (root) {
 }
 
 function lastTraversal (root) {
-  let node = root, nodes = [root]
-  while (node) {
+  let nodes = [root]
+  while (nodes.length) {
+    let node = nodes.pop()
     if (
       (!node.left && !node.right)
       ||
@@ -138,5 +139,51 @@ function leftEyeSide (root) {
     node.right && nodes.push(node.right)
     node.left && nodes.push(node.left)
     node = nodes.pop()
+  }
+}
+
+function preTraversal (root) {
+  let node = root, nodes = []
+  while (node) {
+    console.log(node)
+    node.right && nodes.push(node.right)
+    node.left && nodes.push(node.left)
+    nodes.pop()
+  }
+}
+function midTraversal (root) {
+  let node = root, nodes = []
+  while (node || nodes.length) {
+    while(node) {
+      node.left && nodes.push(node.left)
+      node = node.left
+    }
+    node = nodes.pop()
+    console.log(node.value)
+    if (node.right) {
+      nodes.push(node.right)
+      node = node.right
+    }
+  }
+}
+
+function lastTraversal (root) {
+  let node = root, nodes = []
+  if (
+    (!node.right && !node.left)
+    ||
+    (
+      (!node.right || node.right.done)
+      &&
+      (!node.left || node.left.done)
+    )
+  ) {
+    node.done = true
+    console.log(node.value)
+    node = nodes.pop()
+  } else if (
+    node.right && !node.right.done
+  ) {
+    nodes.push(node.right)
   }
 }

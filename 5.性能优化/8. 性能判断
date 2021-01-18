@@ -1,4 +1,4 @@
-/**
+/** 加载性能
  * 性能监控：
  * 通过Performance api获取整个页面渲染的时间
  * 关键指标：
@@ -70,3 +70,8 @@ function getPerformanceTiming() {
   return times;
 }
 getPerformanceTiming()
+
+
+运行时性能:
+利用PerformanceObserver监听long task事件  超过50ms需要报警
+

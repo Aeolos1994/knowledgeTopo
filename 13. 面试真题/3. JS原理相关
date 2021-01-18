@@ -1,0 +1,101 @@
+主要考点： 老一套
+变量声明提升、局部作用域、this指向、闭包、原型链、eventLoop、类型隐式转换.etc
+
+1. 解释一下   [] == ![]  // true
+
+------------------------------------------------------------
+
+2. 解释一下为什么只有var会有变量声明提升，而const let会出现死区
+
+------------------------------------------------------------
+
+3.
+for (var i = 0; i < 3; i++) { 
+  setTimeout(() => {
+    console.log(i)
+  }) 
+}
+上面代码打印什么，尝试改造为打印0、1、2，至少写出两种方式
+
+------------------------------------------------------------
+
+4.
+var o = 0
+function a () {
+  let o = 1
+  function b () {
+    console.log (o)
+  }
+  return b
+}
+a()() 打印什么
+
+------------------------------------------------------------
+
+5. 
+let f = new Function()
+let o = new Object ()
+
+typeof f
+typeof o
+typeof Function
+typeof Object
+f.__proto__
+o.__proto__
+Function.prototype.__proto__
+Object.prototype.__proto__
+分别是什么？
+
+------------------------------------------------------------
+
+6. 手写一个混合继承
+
+------------------------------------------------------------
+
+7. eventLoop
+console.log(1)
+
+function func2 () {
+  return new Promise (resolve => {
+    console.log(2)
+    resolve()
+  })  
+}
+
+async function () {
+  console.log(3)
+  await func2()
+  console.log(4)
+}
+
+setTimeout() {
+  console.log(5)
+}
+
+let p1 = new Promise(resolve => {
+  console.log(6)
+  resolve(7)
+})
+
+p1.then((res) => {
+  console.log(8)
+  console.log(res)
+})
+
+分别是什么打印顺序？
+
+------------------------------------------------------------
+
+8. 简单描述一下eventLoop, 每一轮eventLoop都会触发渲染么？
+
+------------------------------------------------------------
+
+9. Map和Object有什么区别？ 什么场景你会用Map？
+
+------------------------------------------------------------
+
+10. Reflect是什么？什么时候用？
+
+------------------------------------------------------------
+
+11. 浏览器除了主线程还有什么线程？

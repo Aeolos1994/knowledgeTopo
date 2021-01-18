@@ -1,0 +1,9 @@
+vue是如何实现双向绑定的？
+
+1.组件init过程中会对props、data等数据进行Reactive化，即设置getter和setter,同时对每个属性都会
+实例化一个Dep对象，这些Dep对象将会持有所有依赖这个数据的Watcher实例。
+2.组件mount过程中会实例化一个Watcher，同时执行render function时会访问到组件实例中的数据，
+触发getter，getter会将当前的Watcher实例作为依赖保存在被访问数据的Dep实例的sups数组中。
+3.当组件实例数据变动时，会触发setter,并通过notify方法将变更同步给所有的依赖
+4.Watcher实例接受到变更通知时会触发回调执行组件updateComponent方法然后进行组件进行patch更新
+5.当Dom数据变更时Vue会监听事件，并同步到组件实例数据中，此时即触发了setter进行上述步骤；

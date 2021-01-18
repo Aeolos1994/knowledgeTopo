@@ -1,0 +1,41 @@
+主要考点： 浏览器渲染原理！！！  一定要看、看的细致一些！必问！
+1. <html>
+    <header>
+      <script src="a.com/a"></script>
+    </header>
+    <body>
+      <script src="b.com/b"></script>
+      <p>123</p>
+      <script src="c.com/c"></script>
+      <p>456</p>
+    </body>
+  </html>
+
+
+所有的script标签加载执行都需要3s
+问： 
+a、b、c加载执行时分别能看到123、456吗？ 为什么？
+
+script标签都加上async属性之后呢？  async和defer有什么区别？
+
+script标签中的"crossorigin"属性有什么作用？
+
+为什么性能优化时要将script标签放在body最下方？
+
+2. <html>
+    <header>
+      <link href="style.com/style" />
+      <script src="a.com/a"></script>
+    </header>
+    <body>
+      <p>123</p>
+      <p>456</p>
+    </body>
+  </html> 
+
+问： link在极短时间加载完毕，script标签还是要3s，那么3s内能看到123、456吗？
+
+
+
+
+
